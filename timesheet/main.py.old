@@ -1,0 +1,36 @@
+__author__ = 'Mike'
+
+import math
+print("Use military time format eg: 21")
+
+
+starthr = int(input ("\nWhat hour did you start: "))
+startmin = int(input ("What minute did you start: "))
+lunchmin = int(input ("How many minutes was your lunch: "))
+endhour = int(input ("What hour did you end: "))
+endmin = int(input ("What minute did you end: "))
+
+# compute start time in decimal form
+startmindec = startmin / 60
+starttimedec = starthr + startmindec
+# print("starttime: " + str(starttimedec))
+
+# compute end time in decimal form
+endmindec = endmin / 60
+endtimedec = endhour + endmindec
+# print("endtime: " + str(endtimedec))
+
+# compute lunch time in decimal
+lunchmindec = lunchmin / 60
+
+# compute time
+timeworked = endtimedec - lunchmindec - starttimedec
+# print("timeworked: " + str(timeworked))
+
+# convert to hours and minutes
+remainder = timeworked % 1
+finalminlong = remainder * 60
+finalmin = math.floor(finalminlong)
+finalhour = math.floor(timeworked)
+
+print ("\nYou worked: " + str(finalhour) + "h " + str(finalmin) + "m")
